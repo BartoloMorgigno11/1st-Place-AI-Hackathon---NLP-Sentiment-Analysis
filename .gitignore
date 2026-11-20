@@ -1,0 +1,32 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter artefacts
+.ipynb_checkpoints/
+
+# IDE and editor folders
+.idea/
+.vscode/
+*.code-workspace
+
+# Environment variables
+.env
+
+# Generated assets
+outputs/
+
+# Contest datasets are not licensed for redistribution
+Reviews/*.csv
+Geomap/*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
