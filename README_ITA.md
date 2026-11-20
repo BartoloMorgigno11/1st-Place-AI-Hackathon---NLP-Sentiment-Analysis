@@ -14,11 +14,8 @@ Oltre al modello, forniamo anche una visualizzazione geografica dei punteggi med
 ## Struttura del Repository
 ```
 Geomap/
-  data_geomap_total.csv
   geomap.ipynb
 Reviews/
-  data_classification_20.csv
-  data_classification_80.csv
   logistic_regression.ipynb
 map/
   ne_110m_admin_0_countries.*  (shapefile Natural Earth)
@@ -40,14 +37,15 @@ README_ITA.md
    ```bash
    pip install -r requirements.txt
    ```
-3. Allena e valuta il modello di sentiment:
+3. Procurati dati che sei autorizzato a usare. I CSV originali dell'hackathon non sono distribuiti in questa edizione pubblica per portfolio. Vedi [Configurazione dei dati](#configurazione-dei-dati).
+4. Allena e valuta il modello di sentiment:
    ```bash
-   python scripts/train_sentiment_model.py
+   python scripts/train_sentiment_model.py --train-path path/del/training.csv
    ```
-   Alla prima esecuzione lo script scarica automaticamente le risorse NLTK necessarie (stopwords e punkt). I risultati vengono stampati a video e la curva ROC insieme alla confusion matrix sono salvate nella cartella `outputs/`.
-4. Genera la geomap europea:
+   Alla prima esecuzione lo script scarica automaticamente le stopwords NLTK. I risultati vengono stampati a video e la curva ROC insieme alla confusion matrix sono salvate nella cartella `outputs/`.
+5. Genera la geomap europea:
    ```bash
-   python scripts/generate_geomap.py
+   python scripts/generate_geomap.py --data-path path/del/punteggi_per_citta.csv
    ```
    L'immagine risultante viene salvata in `outputs/european_sentiment_map.png`. Aggiungi `--show` per visualizzarla a schermo.
 
@@ -59,9 +57,12 @@ README_ITA.md
 
 Esegui `python scripts/train_sentiment_model.py --help` o `python scripts/generate_geomap.py --help` per un elenco completo delle opzioni disponibili.
 
-## Note sui Dati
-- I dataset delle recensioni sono in `Reviews/` e includono la colonna `Review` (testo) e `Promotore` (etichetta binaria).
-- `Geomap/data_geomap_total.csv` contiene punteggi aggregati per citta; lo script per la mappa li aggrega ulteriormente per nazione.
+## Configurazione dei dati
+
+I dataset del contest non sono inclusi. Non aggiungerli a fork o copie pubbliche senza un permesso esplicito di redistribuzione dal proprietario.
+
+- Il CSV di training deve includere `Review` (testo libero) e `Promotore` (etichetta binaria). Passalo con `--train-path`; un set aggiuntivo etichettato puo essere fornito con `--extra-path`.
+- Il CSV per la geomap deve includere `City_Nation` (ad esempio `Bari, Italy`) e `Reviewer_Score` numerico. Passalo con `--data-path`.
 - Lo shapefile in `map/` proviene da Natural Earth (public domain).
 
 ## Output Generati
@@ -70,8 +71,7 @@ Esegui `python scripts/train_sentiment_model.py --help` o `python scripts/genera
 - `outputs/european_sentiment_map.png` - mappa termica dei punteggi medi per nazione.
 
 ## Note sul Versionamento
-- `.gitignore` mantiene fuori da Git gli artefatti generati, gli ambienti virtuali e la cartella `outputs/`.
-- Conserva o rimuovi i dataset dal controllo versione in base alle policy di condivisione stabilite dagli organizzatori dell'hackathon.
+- `.gitignore` mantiene fuori da Git gli artefatti generati, gli ambienti virtuali, la cartella `outputs/` e i CSV del contest.
 
 ## Licenza
 I dataset e gli artefatti derivati appartengono agli organizzatori dell'hackathon e al team partecipante. Gli shapefile Natural Earth sono di pubblico dominio. Salvo diversa indicazione, il codice presente in questo repository e' distribuito con licenza MIT.
