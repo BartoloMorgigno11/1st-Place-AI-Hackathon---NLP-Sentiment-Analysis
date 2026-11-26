@@ -49,6 +49,26 @@ README_ITA.md
    ```
    L'immagine risultante viene salvata in `outputs/european_sentiment_map.png`. Aggiungi `--show` per visualizzarla a schermo.
 
+## Verifica riproducibile con dati sintetici
+
+I CSV originali dell'hackathon non sono pubblicabili. Per consentire una prova
+indipendente, il repository genera **16 recensioni artificiali** con etichette
+binarie bilanciate. Il risultato ottenuto su questi dati serve esclusivamente a
+verificare che gli script funzionino: **non riproduce il 96% storico, non misura
+la generalizzazione del modello e non contiene recensioni reali**.
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/generate_synthetic_fixture.py
+python -m unittest discover -s tests -p 'test_*.py' -v
+python scripts/train_sentiment_model.py --train-path examples/synthetic_reviews.csv --skip-extra
+```
+
+Il training scarica le stopword inglesi di NLTK al primo avvio, se mancanti.
+Gli output dimostrativi sono salvati in `outputs/`. I test unitari possono
+essere eseguiti senza dataset originali e senza rete; GitHub Actions esegue
+anche un test completo della CLI sui dati artificiali.
+
 ## Personalizzazioni
 - Usa un dataset differente con `--train-path path/del/dataset.csv`.
 - Valuta un dataset aggiuntivo con etichette tramite `--extra-path path/del/dataset_extra.csv`.
