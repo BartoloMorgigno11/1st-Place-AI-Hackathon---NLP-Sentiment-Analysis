@@ -49,6 +49,30 @@ README_ITA.md
    ```
    The resulting figure is saved in `outputs/european_sentiment_map.png`. Add `--show` to display the map interactively.
 
+
+## Public reproducibility smoke (no contest data required)
+
+The original hackathon CSVs are not distributed. To independently check that the
+published training pipeline runs end-to-end, use the **synthetic** review fixture
+below (16 artificial sentences, balanced binary labels). This is only an
+execution/regression check; **its metrics are not a reproduction of the historical
+96% contest score** and must not be used to claim model generalisation.
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/generate_synthetic_fixture.py
+python -m unittest discover -s tests -p 'test_*.py' -v
+python scripts/train_sentiment_model.py --train-path examples/synthetic_reviews.csv --skip-extra
+```
+
+The final command downloads NLTK English stopwords on its first run; it creates
+`outputs/roc_curve.png` and `outputs/confusion_matrix.png`. The lightweight
+unit tests do not require a network connection or original contest files. The
+GitHub Actions workflow verifies both tests and a synthetic CLI run.
+
+These synthetic records are authored solely for reproducibility and have no
+connection to real reviewers or contest participants.
+
 ## Customising the Pipelines
 - Provide a different dataset using `--train-path path/to/data.csv`.
 - Evaluate on another labelled dataset with `--extra-path path/to/extra.csv`.
