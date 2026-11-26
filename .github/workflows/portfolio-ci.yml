@@ -1,0 +1,24 @@
+name: Portfolio reproducibility checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  synthetic-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install minimal verification dependencies
+        run: python -m pip install pandas numpy scikit-learn nltk matplotlib
+      - name: Run pipeline tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Generate the synthetic demo fixture
+        run: python scripts/generate_synthetic_fixture.py
+      - name: Smoke-test training CLI with synthetic reviews
+        run: |
+          python -m nltk.downloader stopwords
+          python scripts/train_sentiment_model.py --train-path examples/synthetic_reviews.csv --skip-extra --roc-output /tmp/refood-nlp-roc.png --confusion-output /tmp/refood-nlp-confusion.png
