@@ -7,7 +7,7 @@ This repository documents the sentiment-analysis solution developed by the winni
 
 Alongside the model, we provide a geomap visualisation that showcases the average reviewer score by country across Europe.
 
-**Winning team:** Bartolo Morgigno, Erica Porcelli, Vito Marzocca and Gabriele Colapinto.
+**Winning team:** Bartolo Morgigno, Erica Porcelli, Vito Marzocca and Gabriele Colapinto. Development responsibilities were shared equally among team members, without a formal division of components.
 
 ## Highlights
 - Hackathon: Member of the winning team; [public organiser announcement](https://it.linkedin.com/posts/bartolo-morgigno_grazie-mille-per-la-bellissima-esperienza-activity-7262877376995328000-8j8m).
