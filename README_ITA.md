@@ -1,12 +1,12 @@
 # Randstad & MKERS Sentiment Analysis Challenge
 
 ## Panoramica
-Questo repository contiene la soluzione con cui abbiamo vinto l'AI Hackathon organizzato da Randstad e MKERS al Politecnico di Bari. L'obiettivo era costruire nel minor tempo possibile un sistema di sentiment analysis su recensioni di hotel ottenendo la massima accuracy. Grazie a un pipeline di preprocessamento mirato e a un classificatore di regressione logistica ben bilanciato abbiamo raggiunto il 96 percento di accuracy e conquistato il primo posto.
+Questo repository documenta una soluzione di sentiment analysis realizzata nell'ambito dell'AI Hackathon Randstad e MKERS al Politecnico di Bari. Il [post pubblico degli organizzatori, condiviso da un componente della squadra](https://it.linkedin.com/posts/bartolo-morgigno_grazie-mille-per-la-bellissima-esperienza-activity-7262877376995328000-8j8m), conferma la vittoria del team. Il codice impiega TF-IDF e regressione logistica bilanciata; i dataset e i report numerici originali non sono pubblicati, quindi l'accuratezza ottenuta durante il contest non è riproducibile indipendentemente da questo repository.
 
 Oltre al modello, forniamo anche una visualizzazione geografica dei punteggi medi dei recensori in Europa.
 
 ## Punti di Forza
-- Vincitori dell'hackathon: accuracy del 96 percento in tempi rapidissimi.
+- Hackathon: membro del team vincitore, come documentato dal [post degli organizzatori](https://it.linkedin.com/posts/bartolo-morgigno_grazie-mille-per-la-bellissima-esperienza-activity-7262877376995328000-8j8m).
 - Semplice ma potente: TF-IDF su unigrammi e bigrammi con logistic regression bilanciata.
 - Insight immediati: geomap europea con i punteggi medi aggregati per nazione.
 - Script riproducibili: tutto eseguibile da terminale senza usare i notebook.
@@ -54,7 +54,7 @@ README_ITA.md
 I CSV originali dell'hackathon non sono pubblicabili. Per consentire una prova
 indipendente, il repository genera **16 recensioni artificiali** con etichette
 binarie bilanciate. Il risultato ottenuto su questi dati serve esclusivamente a
-verificare che gli script funzionino: **non riproduce il 96% storico, non misura
+verificare che gli script funzionino: **non riproduce i risultati del contest, non misura
 la generalizzazione del modello e non contiene recensioni reali**.
 
 ```bash
