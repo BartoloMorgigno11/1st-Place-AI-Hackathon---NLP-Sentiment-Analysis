@@ -1,12 +1,12 @@
 # Randstad & MKERS Sentiment Analysis Challenge
 
 ## Overview
-This repository contains the winning solution we built during the Randstad & MKERS AI Hackathon at Politecnico di Bari. The task was to deliver the most accurate sentiment analysis model in the shortest possible time using real hotel reviews. By focusing on a lean preprocessing pipeline and a well-regularised logistic regression classifier, we achieved a 96% accuracy score that secured first place.
+This repository documents the sentiment-analysis solution developed by a member of the winning team at the Randstad & MKERS AI Hackathon hosted at Politecnico di Bari. The [organiser's announcement, shared by a participating team member](https://it.linkedin.com/posts/bartolo-morgigno_grazie-mille-per-la-bellissima-esperienza-activity-7262877376995328000-8j8m), corroborates the team result. The public code uses TF-IDF and class-balanced logistic regression; the original contest dataset and score reports are not included, so a numeric contest accuracy cannot be independently reproduced from this repository.
 
 Alongside the model, we provide a geomap visualisation that showcases the average reviewer score by country across Europe.
 
 ## Highlights
-- Hackathon winner: Delivered the highest accuracy (96 percent) in record time.
+- Hackathon: Member of the winning team; [public organiser announcement](https://it.linkedin.com/posts/bartolo-morgigno_grazie-mille-per-la-bellissima-esperienza-activity-7262877376995328000-8j8m).
 - Simple and effective: TF-IDF features combined with a class-balanced logistic regression.
 - Insights at a glance: European geomap of aggregated reviewer sentiment.
 - Reproducible scripts: Run the full pipeline without opening the notebooks.
@@ -55,8 +55,7 @@ README_ITA.md
 The original hackathon CSVs are not distributed. To independently check that the
 published training pipeline runs end-to-end, use the **synthetic** review fixture
 below (16 artificial sentences, balanced binary labels). This is only an
-execution/regression check; **its metrics are not a reproduction of the historical
-96% contest score** and must not be used to claim model generalisation.
+execution/regression check; **its metrics are not evidence of the original contest performance** and must not be used to claim model generalisation.
 
 ```bash
 python -m pip install -r requirements.txt
