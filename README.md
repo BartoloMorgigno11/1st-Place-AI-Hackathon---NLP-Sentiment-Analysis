@@ -1,5 +1,7 @@
 # Randstad & MKERS Sentiment Analysis Challenge
 
+[![Synthetic pipeline checks](https://github.com/BartoloMorgigno11/1st-Place-AI-Hackathon---NLP-Sentiment-Analysis/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/BartoloMorgigno11/1st-Place-AI-Hackathon---NLP-Sentiment-Analysis/actions/workflows/portfolio-ci.yml)
+
 ## Overview
 This repository documents the sentiment-analysis solution developed by a member of the winning team at the Randstad & MKERS AI Hackathon hosted at Politecnico di Bari. The [organiser's announcement, shared by a participating team member](https://it.linkedin.com/posts/bartolo-morgigno_grazie-mille-per-la-bellissima-esperienza-activity-7262877376995328000-8j8m), corroborates the team result. The public code uses TF-IDF and class-balanced logistic regression; the original contest dataset and score reports are not included, so a numeric contest accuracy cannot be independently reproduced from this repository.
 
