@@ -1,9 +1,15 @@
 # Randstad & MKERS Sentiment Analysis Challenge
 
+[![Verifica su dati sintetici](https://github.com/BartoloMorgigno11/1st-Place-AI-Hackathon---NLP-Sentiment-Analysis/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/BartoloMorgigno11/1st-Place-AI-Hackathon---NLP-Sentiment-Analysis/actions/workflows/portfolio-ci.yml)
+
+[English version](README.md)
+
 ## Panoramica
 Questo repository documenta una soluzione di sentiment analysis realizzata nell'ambito dell'AI Hackathon Randstad e MKERS al Politecnico di Bari. Il [post pubblico degli organizzatori, condiviso da un componente della squadra](https://it.linkedin.com/posts/bartolo-morgigno_grazie-mille-per-la-bellissima-esperienza-activity-7262877376995328000-8j8m), conferma la vittoria del team. Il codice impiega TF-IDF e regressione logistica bilanciata; i dataset e i report numerici originali non sono pubblicati, quindi l'accuratezza ottenuta durante il contest non è riproducibile indipendentemente da questo repository.
 
 Oltre al modello, forniamo anche una visualizzazione geografica dei punteggi medi dei recensori in Europa.
+
+**Team vincitore:** Bartolo Morgigno, Erica Porcelli, Vito Marzocca e Gabriele Colapinto. Il lavoro di sviluppo è stato condiviso equamente, senza una suddivisione formale dei componenti.
 
 ## Punti di Forza
 - Hackathon: membro del team vincitore, come documentato dal [post degli organizzatori](https://it.linkedin.com/posts/bartolo-morgigno_grazie-mille-per-la-bellissima-esperienza-activity-7262877376995328000-8j8m).
@@ -51,7 +57,7 @@ README_ITA.md
 
 ## Verifica riproducibile con dati sintetici
 
-I CSV originali dell'hackathon non sono pubblicabili. Per consentire una prova
+I CSV originali dell'hackathon non sono distribuiti in questo repository. Per consentire una prova
 indipendente, il repository genera **16 recensioni artificiali** con etichette
 binarie bilanciate. Il risultato ottenuto su questi dati serve esclusivamente a
 verificare che gli script funzionino: **non riproduce i risultati del contest, non misura
@@ -72,7 +78,7 @@ anche un test completo della CLI sui dati artificiali.
 ## Personalizzazioni
 - Usa un dataset differente con `--train-path path/del/dataset.csv`.
 - Valuta un dataset aggiuntivo con etichette tramite `--extra-path path/del/dataset_extra.csv`.
-- Modifica la dimensionalita del TF-IDF con `--max-features`.
+- Modifica la dimensionalità del TF-IDF con `--max-features`.
 - Cambia la scala cromatica della geomap con `--vmin` e `--vmax`.
 
 Esegui `python scripts/train_sentiment_model.py --help` o `python scripts/generate_geomap.py --help` per un elenco completo delle opzioni disponibili.
@@ -81,7 +87,7 @@ Esegui `python scripts/train_sentiment_model.py --help` o `python scripts/genera
 
 I dataset del contest non sono inclusi. Non aggiungerli a fork o copie pubbliche senza un permesso esplicito di redistribuzione dal proprietario.
 
-- Il CSV di training deve includere `Review` (testo libero) e `Promotore` (etichetta binaria). Passalo con `--train-path`; un set aggiuntivo etichettato puo essere fornito con `--extra-path`.
+- Il CSV di training deve includere `Review` (testo libero) e `Promotore` (etichetta binaria). Passalo con `--train-path`; un set aggiuntivo etichettato può essere fornito con `--extra-path`.
 - Il CSV per la geomap deve includere `City_Nation` (ad esempio `Bari, Italy`) e `Reviewer_Score` numerico. Passalo con `--data-path`.
 - Lo shapefile in `map/` proviene da Natural Earth (public domain).
 
@@ -94,4 +100,4 @@ I dataset del contest non sono inclusi. Non aggiungerli a fork o copie pubbliche
 - `.gitignore` mantiene fuori da Git gli artefatti generati, gli ambienti virtuali, la cartella `outputs/` e i CSV del contest.
 
 ## Licenza
-I dataset e gli artefatti derivati appartengono agli organizzatori dell'hackathon e al team partecipante. Gli shapefile Natural Earth sono di pubblico dominio. Salvo diversa indicazione, il codice presente in questo repository e' distribuito con licenza MIT.
+I dataset e gli artefatti derivati appartengono agli organizzatori dell'hackathon e al team partecipante. Gli shapefile Natural Earth sono di pubblico dominio. Salvo diversa indicazione, il codice presente in questo repository è distribuito con licenza MIT.
